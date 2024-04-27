@@ -2,7 +2,7 @@
 
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-interface Todo {
+export interface Todo {
   id: number;
   text: string;
   deleted: boolean;
@@ -17,7 +17,23 @@ interface TodoState {
 const initialState: TodoState = {
   activeTab: 'all',
   inputValue: '',
-  todos: [],
+  todos: [
+    {
+      id: 1,
+      text: 'todo#1',
+      deleted: true,
+    },
+    {
+      id: 2,
+      text: 'todo#2',
+      deleted: false,
+    },
+    {
+      id: 3,
+      text: 'todo#3',
+      deleted: false,
+    },
+  ],
 };
 
 const todoModel = createSlice({

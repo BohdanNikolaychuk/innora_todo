@@ -1,44 +1,20 @@
-import { MdAutoDelete } from 'react-icons/md';
-import { useDispatch } from 'react-redux';
-import { todoModel } from '../../../entities/todo';
-import s from '../../../pages/feed/styles.module.scss';
+import s from './todo-list.module.scss';
 import { useAppSelector } from '../../../shared/lib/store';
+import { TodoItem } from '../ui/todo-item';
 export const TodoList = () => {
   const todos = useAppSelector(state => state.todo.todos);
   const activeTab = useAppSelector(state => state.todo.activeTab);
 
-  const dispatch = useDispatch();
+  const nonDeletedTodos = todos.filter(todo => !todo.deleted);
+  const deletedTodos = todos.filter(todo => todo.deleted);
 
-  const handleMarkAsDeleted = (id: number) => {
-    dispatch(todoModel.markAsDeleted(id));
-  };
-
-  const filteredTodos = todos.filter(todo => {
-    if (activeTab === 'all') {
-      return true;
-    } else if (activeTab === 'deleted') {
-      return todo.deleted;
-    }
-    return false;
-  });
+  const sortedTodos =
+    activeTab === 'all' ? [...nonDeletedTodos] : [...deletedTodos];
 
   return (
     <ul className={s['feed__list']}>
-      {filteredTodos.map(todo => (
-        <li
-          key={todo.id}
-          className={`${s['todo__item']} ${todo.deleted ? s['deleted'] : ''}`}
-        >
-          {todo.text}
-          {!todo.deleted && (
-            <button
-              className={s['delete__button']}
-              onClick={() => handleMarkAsDeleted(todo.id)}
-            >
-              <MdAutoDelete size={20} />
-            </button>
-          )}
-        </li>
+      {sortedTodos.map(todo => (
+        <TodoItem key={todo.id} todo={todo} />
       ))}
     </ul>
   );

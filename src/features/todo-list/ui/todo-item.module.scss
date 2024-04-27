@@ -1,0 +1,35 @@
+.todo__item {
+  font-size: 18px;
+  font-weight: 500;
+  color: #9e78cf;
+  background: #15101c;
+  border-radius: 10px;
+}
+.todo__item_wrap {
+  padding: 21px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.delete__button {
+  border: none;
+  background-color: inherit;
+  cursor: pointer;
+}
+
+.delete__button .delete-icon {
+  color: white;
+  transition: all ease-in 0.3s;
+}
+
+.delete__button:hover .delete-icon {
+  color: #9e78cf;
+}
+
+.deleted {
+  font-size: 18px;
+  font-weight: 600;
+  text-decoration: line-through;
+  color: #888;
+}

@@ -1,0 +1,43 @@
+.home {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.home__action {
+  display: flex;
+  flex-direction: column;
+}
+
+.home__title {
+  color: white;
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 12px;
+}
+
+.home__desc {
+  color: white;
+  font-size: 24px;
+  text-align: center;
+
+  margin-bottom: 22px;
+}
+
+.home__link {
+  color: white;
+  text-decoration: none;
+  height: 40px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #9e78cf;
+  border: 1px solid inherit;
+  border-radius: 10px;
+  transition: all ease-in 0.3s;
+  &:hover {
+    border: 2px solid #3e1671;
+    background: initial;
+  }
+}
