@@ -5,7 +5,10 @@ export const TodoTabs = () => {
   const dispatch = useAppDispatch();
 
   const activeTab = useAppSelector(state => state.todo.activeTab);
+  const todos = useAppSelector(state => state.todo.todos);
 
+  const nonDeletedTodos = todos.filter(todo => !todo.deleted);
+  const deletedTodos = todos.filter(todo => todo.deleted);
   const handleTabClick = (tab: 'all' | 'deleted') => {
     dispatch(todoModel.setActiveTab(tab));
   };
@@ -18,7 +21,7 @@ export const TodoTabs = () => {
         }`}
         onClick={() => handleTabClick('all')}
       >
-        All
+        All ({nonDeletedTodos.length})
       </button>
       <button
         className={`${s['tab__button']} ${
@@ -26,7 +29,7 @@ export const TodoTabs = () => {
         }`}
         onClick={() => handleTabClick('deleted')}
       >
-        Archive
+        Archive ({deletedTodos.length})
       </button>
     </div>
   );
