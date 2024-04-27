@@ -1,0 +1,97 @@
+.feed {
+  height: 100%;
+}
+
+.feed__title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.feed__action {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.feed__container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.feed__action {
+  width: 100%;
+  height: 38px;
+  margin-bottom: 20px;
+}
+.feed__input {
+  flex: 1;
+  height: 100%;
+  border: none;
+  padding-left: 20px;
+  border: 1px solid #6c63ff;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+.add__button {
+  cursor: pointer;
+  border: none;
+  background: inherit;
+  height: 100%;
+}
+
+.feed__tabs {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  justify-content: center;
+  max-width: 440px;
+  margin: 0 auto;
+  width: 100%;
+  height: 40px;
+  padding: 5px;
+  border-radius: 8px;
+  background: #c3c1e5;
+}
+
+.tab__button {
+  flex: 1;
+  border: none;
+  height: 100%;
+  background-color: #dfdfdf;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 16px;
+  color: #404040;
+  transition: color 0.3s;
+
+  &.active {
+    background: #6c63ff;
+    color: white;
+  }
+}
+
+.feed__list {
+  padding: 0;
+  margin: 20px auto;
+  max-width: 440px;
+}
+
+.todo__item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 18px;
+}
+
+.delete__button {
+  border: none;
+  background-color: inherit;
+  cursor: pointer;
+}
+
+.deleted {
+  text-decoration: line-through;
+  color: #888;
+}
